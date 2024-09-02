@@ -8,7 +8,6 @@
   - name: COURSE
     prompt: Please enter course name
     private: false #if the given info is not confidential
-  - name: TRAINER
   tasks:
     
 
