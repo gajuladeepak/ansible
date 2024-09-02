@@ -8,6 +8,9 @@
   - name: COURSE
     prompt: Please enter course name
     private: false #if the given info is not confidential
+
+  vars_files:
+    vars.yaml
   tasks:
     
 
