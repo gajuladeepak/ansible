@@ -1,0 +1,20 @@
+- name: Variables to print
+  hosts: web
+  vars:
+    COURSE: "DEVOPS WITH AWS"
+    DURATION: "120HRS"
+    TRAINER: "SHIVA KUMAR"
+  vars_prompt:
+  - name: COURSE
+    prompt: Please enter course name
+    private: false #if the given info is not confidential
+  - name: TRAINER
+  tasks:
+    
+
+
+    - name: Variables from task level  
+      vars: #task level variables
+        COURSE: "Ansible from task level" #here we are over-riding the VARIABLE
+      ansible.builtin.debug:
+        msg: "Hi, I am learning {{COURSE}}"
