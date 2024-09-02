@@ -1,0 +1,7 @@
+- name: nginx install and run
+  hosts: web
+  tasks:
+  - name: install nginx
+    ansible.builtin.package:  #it is an heterogenous module that can work for all distributions. By giving like this ansible-server understands the server to which it is going to connect to and perform respective dnf command in background
+      name: nginx
+      state: present  #if you want remove change staate as "absent"
