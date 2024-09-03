@@ -1,17 +1,17 @@
 - name: check a number is less than 10 or not
   hosts: local
   connection: local
-  vars_prompt:
-  - name: num | int
+  vars_prompt: #input given by prompt will be consider as string
+  - name: num
     prompt: please enter number
     private: false
   tasks:
   - name: print this if less than 10
     ansible.builtin.debug:
       msg: "Given Number {{ num }} is less than 10"
-    when: num < 10 #conditional expression
+    when: num | int < 10 #conditional expression #here what we are trying to say to ansible is consider the number which i have given as integer
   
   - name: print this if greater than or equal to 10
     ansible.builtin.debug:
       msg: "Given Number {{ num }} greater than or equal to 10"
-    when: num >= 10
+    when: num | int >= 10
