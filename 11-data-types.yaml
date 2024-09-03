@@ -1,6 +1,6 @@
 - name: devops course information
   hosts: local
-  connection: local
+  connection: local #as we are in local server ansible will not search for username & password, usally we need to give username and password to enter in server as we are in local-server don't need give
   vars:
     course: "Devops with AWS" #string
     duration: 120 #number
