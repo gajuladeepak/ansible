@@ -42,6 +42,8 @@
         trainer: "shiva"
     ansible.builtin.debug:
       msg: "{{ course | dict2items }}"
+
+
   - name: convert list to map
     vars:
       course:
@@ -50,3 +52,9 @@
       - { "key": "trainer","value": "Shiva" }
     ansible.builtin.debug:
       msg: "{{ course | items2dict }}"
+
+  - name: check for ip address
+    vars:
+      myip: "356.168.1.1"
+    ansible.builtin.debug:
+      msg: "{{ myip | ansible.utils.ipv4 }}"
