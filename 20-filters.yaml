@@ -57,4 +57,7 @@
     vars:
       myip: "356.168.1.1"
     ansible.builtin.debug:
-      msg: "{{ myip | ansible.utils.ipv4 }}"
+      msg: "{{ myip | ansible.utils.ipv4 }}"  #this will return false if it's not a valid IP addresses
+
+
+      #as ansible is devloped by python, eppudina koni functionalities ki konni dependencies kavalasi vasthundhi ah dependencies miss avthe run chesaka manaku error vasthundhi stating that we need certain dependencies 
