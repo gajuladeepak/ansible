@@ -41,4 +41,4 @@
         duration: 120
         trainer: "shiva"
     ansible.builtin.debug:
-      msg: "{{ course | dict2items }}""
+      msg: "{{ course | dict2items }}"
