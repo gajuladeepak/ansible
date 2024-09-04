@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-  course: "DEVOPS"
+    course: "DEVOPS"
   tasks:
   - name: print the deault variable
     ansible.builtin.debug:
