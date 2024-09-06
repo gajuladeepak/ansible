@@ -1,0 +1,30 @@
+
+
+#ansible connecting with AWS and create the instance whatever we want
+- name: create ec2 instance and r53 records
+  hosts: local
+  connection: local
+  vars:
+    subnet_id: "subnet-04394e3587e1e9d34" #In "Networking" tab
+    security_id: "sg-05598edab15484e46" #In "Security" tab
+    ami_id: "ami-09c813fb71547fc4f"  #In details tab
+    instances:
+    - mysql
+    - frontend
+    - backend
+  tasks:
+  - name: create ec2-instance
+    amazon.aws.ec2_instance:
+      name: {{ item }}
+      vpc_subnet_id: {{ subnet_id }}
+      instance_type: "t3.micro"
+      security_group: {{ security_id }}
+      image_id: {{ ami_id }}
+    loop: {{ instances }}
+    register: ec2_instances
+
+
+
+
+#to install python packages in ansible
+#pip3.9 install boto3 botocore
