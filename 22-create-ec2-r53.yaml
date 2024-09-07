@@ -14,6 +14,13 @@
     - backend
     zone: "deepakaws.online"
   tasks:
+  - name: ansible to install boto3 and botocore
+    ansible.builtin.pip:
+      name:
+      - boto3
+      - botocore
+      executable: pip3.9
+      
   - name: create ec2 instance
     amazon.aws.ec2_instance:
       name: "{{ item }}"
@@ -55,7 +62,9 @@
 
 
 
-
+# when we run this script multiple times it checks whether the instances are created with given values or not
+# if not it create the new instances
+#if the values to script changes then it will genrate instances with given values accordingly
 
 
 #to install python packages in ansible
