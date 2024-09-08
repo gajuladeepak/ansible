@@ -60,6 +60,8 @@
     loop: "{{ ec2_instances.results }}" 
     when: item.item == "frontend"
 
+  
+
 
 
 # when we run this script multiple times it checks whether the instances are created with given values or not
