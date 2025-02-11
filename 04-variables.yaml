@@ -1,10 +1,22 @@
 - name: variables to print
   hosts: web
-  vars:
+  vars: #play level, all tasks in this play have access to this
     ROLE: "DEVOPS ENGINEER"
     EXPERIANCE: "3"
     NAME: "DEEPAK"
   tasks:
   - name: print the information
     ansible.builtin.debug:
-     msg: "Hi i am {{ROLE}}, and my experiance is {{EXPERIANCE}}years, and my name is {{NAME}}"
+     msg: "Hi i am {{NAME}}, and my experiance is {{EXPERIANCE}}years, and my role is {{ROLE}}"
+
+
+- name: Variables to print
+  hosts: web
+  vars:
+    COURSE: "DEVOPS WITH AWS"
+    DURATION: "120HRS"
+    TRAINER: "SHIVA KUMAR"
+  tasks:
+    - name: print the information
+      ansible.builtin.debug:
+        msg: "Hi, I am learning {{COURSE}}, Duration is {{DURATION}}, Trainer: {{TRAINER}}"

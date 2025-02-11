@@ -10,7 +10,7 @@
         msg: "Hi, I am learning {{COURSE}}, Duration is {{DURATION}}, Trainer: {{TRAINER}}"
 
     - name: print the information  
-      vars: #task level variables
+      vars: #task level variables override play level
         COURSE: "Ansible" #here we are over-riding the VARIABLE
       ansible.builtin.debug:
         msg: "Hi, I am learning {{COURSE}}, Duration is {{DURATION}}, Trainer: {{TRAINER}}"
@@ -19,3 +19,9 @@
     - name: print the information
       ansible.builtin.debug:
         msg: "Hi, I am learning {{COURSE}}, Duration is {{DURATION}}, Trainer: {{TRAINER}}"
+
+
+
+#the variables which are declared at play level can be accessed in any task
+# usually we call it as INHERITANCE
+#the variables declared inside a task are accessed only inside the task, 
