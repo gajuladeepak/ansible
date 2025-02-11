@@ -1,19 +1,13 @@
 - name: nginx install and run
   hosts: web
-  become: yes #to give sudo access add this line, take sudo access
   tasks:
-  - name: install nginx
-    ansible.builtin.package:  #it is an heterogenous module that can work for all distributions. By giving like this ansible-server understands the server to which it is going to connect to and perform respective dnf command in background
+  - name: installing nginx
+    ansible.builtin.package:
       name: nginx
-      state: present  #if you want remove change staate as "absent"
+      state: present
 
-
-  - name: start/Run nginx service
+  - name: run nginx
     ansible.builtin.service:
       name: nginx
       state: started
-
-  - name: enabling the service
-    ansible.builtin.service:
-      name: nginx
-      state: enabled
+      enabled: yes
