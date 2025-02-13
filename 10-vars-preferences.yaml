@@ -1,9 +1,9 @@
 - name: Variables to print
   hosts: web
-  vars:
-    COURSE: "DEVOPS WITH AWS"
-    DURATION: "120HRS"
-    TRAINER: "SHIVA KUMAR"
+  # vars:
+  #   COURSE: "DEVOPS WITH AWS"
+  #   DURATION: "120HRS"
+  #   TRAINER: "SHIVA KUMAR"
   # vars_prompt:
   # - name: COURSE
   #   prompt: Please enter course name
@@ -33,3 +33,5 @@
 #task
 #files
 #command prompt
+#play
+
