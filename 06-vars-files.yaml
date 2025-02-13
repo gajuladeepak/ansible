@@ -8,11 +8,11 @@
       msg: "Hi i am {{NAME}}, and my experiance is {{EXPERIANCE}}years, and my role is {{ROLE}}"
 
 
-- name: varaibles from the files
-  hosts: web
-  vars_files:
-  - vars.yaml
-  tasks:
-  - name: print the course info
-    ansible.builtin.debug:
-      msg: "Hi, I am learning {{COURSE}}, Duration is {{DURATION}}, Trainer: {{TRAINER}}"
+# - name: varaibles from the files
+#   hosts: web
+#   vars_files:
+#   - vars.yaml
+#   tasks:
+#   - name: print the course info
+#     ansible.builtin.debug:
+#       msg: "Hi, I am learning {{COURSE}}, Duration is {{DURATION}}, Trainer: {{TRAINER}}"
