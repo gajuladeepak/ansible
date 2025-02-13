@@ -4,10 +4,10 @@
     COURSE: "DEVOPS WITH AWS"
     DURATION: "120HRS"
     TRAINER: "SHIVA KUMAR"
-  vars_prompt:
-  - name: COURSE
-    prompt: Please enter course name
-    private: false #if the given info is not confidential
+  # vars_prompt:
+  # - name: COURSE
+  #   prompt: Please enter course name
+  #   private: false #if the given info is not confidential
 
   # vars_files:
   # - vars.yaml
@@ -32,3 +32,4 @@
 
 #task
 #files
+#command prompt
