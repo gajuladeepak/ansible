@@ -1,11 +1,11 @@
-- name: loops demo
+- name: loops
   hosts: web
   become: yes
   tasks:
-  - name: print names
+  - name: install packages
     ansible.builtin.package:
-      name: "{{ item }}""
+      name: {{ item }}
       state: present
     loop:
     - mysql
-    - nginxxxx
+    - nginx
