@@ -5,5 +5,7 @@
   - name: check user exist or not
     ansible.builtin.command: id expense
     register: USER
+
+  - name: print the USER
     ansible.builtin.debug:
-      msg: "USER"
+      msg: "{{ USER }}"
