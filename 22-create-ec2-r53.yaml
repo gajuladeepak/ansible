@@ -23,6 +23,6 @@
     loop: "{{ servers }}"
     register: ec2_instances
 
-    - name: print the ec2-instances
-      ansible.builtin.debug:
-        msg: "{{ ec2_instances }}"
+  - name: print the ec2-instances
+    ansible.builtin.debug:
+      msg: "{{ ec2_instances }}"
