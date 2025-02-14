@@ -32,6 +32,7 @@
       record: "{{ item.item }}.zone_id"
       type: "A"
       ttl: 1
+      value: "{{ item.instances[0].public_ip_address }}"
       wait: True
       overwrite: true
     loop: "{{ ec2_instances.results }}"
