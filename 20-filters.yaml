@@ -61,3 +61,5 @@
 
 
       #as ansible is devloped by python, eppudina koni functionalities ki konni dependencies kavalasi vasthundhi ah dependencies miss avthe run chesaka manaku error vasthundhi stating that we need certain dependencies 
+
+      #pip3.9 install netaddr
