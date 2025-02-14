@@ -1,63 +1,7 @@
-- name: demo on filters/functions
+- name: print
   hosts: local
   connection: local
-  vars:
-    course: "DEVOPS"
   tasks:
-  - name: print the deault variable
+  - name: print default
     ansible.builtin.debug:
-      msg: "Hello {{ course | default('Ansible') }}"
-
-  - name: convert to upper case
-    vars:
-      greeting: "Hello Deepak"
-    ansible.builtin.debug:
-      msg: "{{ greeting | upper }}" 
-
-  - name: convert to lower case
-    vars:
-      greeting: "Hello Deepak"
-    ansible.builtin.debug:
-      msg: "{{ greeting | lower }}" 
-  
-  - name: convert to unique
-    vars:
-      numbers: [1,2,4,5,3,2,1]
-    ansible.builtin.debug:
-      msg: "{{ numbers | unique }}"
-
-  - name: finding min and max
-    vars:
-      numbers: [1,2,4,5,3,2,1]
-    ansible.builtin.debug:
-      msg: "Min: {{ numbers | min }}
-            Max: {{ numbers | max }}"
-
-
-  - name: convert map to list
-    vars:
-      course:
-        name: "Devops with AWS"
-        duration: 120
-        trainer: "shiva"
-    ansible.builtin.debug:
-      msg: "{{ course | dict2items }}"
-
-
-  - name: convert list to map
-    vars:
-      course:
-      - { "key": "name","value": "Devops with AWS" }
-      - { "key": "duration","value": 120 }
-      - { "key": "trainer","value": "Shiva" }
-    ansible.builtin.debug:
-      msg: "{{ course | items2dict }}"
-
-  - name: check for ip address
-    vars:
-      myip: "356.168.1.1"
-    ansible.builtin.debug:
-      msg: "{{ myip | ansible.utils.ipv4 }}"  #this will return false if it's not a valid IP addresses
-
-
-      #as ansible is devloped by python, eppudina koni functionalities ki konni dependencies kavalasi vasthundhi ah dependencies miss avthe run chesaka manaku error vasthundhi stating that we need certain dependencies 
+      msg: {{ course | default('ANSIBLE') }}
