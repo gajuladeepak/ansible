@@ -42,7 +42,7 @@
       state: present
       zone: "{{ zone_id }}"
       record: "{{ zone_id }}"
-      value: "{{ item,instances[0].public_ip_address }}"
+      value: "{{ item.instances[0].public_ip_address }}"
       type: A
       ttl: 1
       wait: True
