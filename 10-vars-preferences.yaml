@@ -13,10 +13,10 @@
   - vars.yaml
   tasks:
   - name: Variables from task level  
-      vars: #task level variables
-        COURSE: "Ansible from task level" #here we are over-riding the VARIABLE
-      ansible.builtin.debug:
-        msg: "Hi, I am learning {{COURSE}}"
+    vars: #task level variables
+      COURSE: "Ansible from task level" #here we are over-riding the VARIABLE
+    ansible.builtin.debug:
+      msg: "Hi, I am learning {{COURSE}}"
 
 
 #1. command line
