@@ -51,5 +51,5 @@
   tasks:
   - name: print the info
     ansible.builtin.debug:
-    msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXP}}"
+      msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXP}}"
 
