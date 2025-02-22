@@ -1,16 +1,11 @@
-- name: create user
-  hosts: web
-  become: yes
-  tasks: 
-  - name: check for user expense
-    ansible.builtin.command: id expense
-    register: USER
-    ignore_errors: True
-
-  - name: user info
+- name: loops
+  hosts: local
+  connection: local
+  tasks:
+  - name: print names
     ansible.builtin.debug:
-      msg: "{{USER}}"
-
-  - name: create user
-    ansible.builtin.command: useradd expense
-    when: USER.rc != 0
+      msg: "Hello {{item}}"
+    loop:
+    - ramesh
+    - suresh
+    - roopesh
