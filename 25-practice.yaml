@@ -1,58 +1,17 @@
-# - name: ping pong
-#   hosts: web
-#   tasks:
-#   - name: ping the server
-#     ansible.builtin.ping:
-
-# - name: install nginx and run
-#   hosts: web
-#   become: yes
-#   tasks:
-#   - name: install nginx
-#     ansible.builtin.package:
-#       name: nginx
-#       state: present
-#   - name: run nginx
-#     ansible.builtin.service:
-#       name: nginx
-#       state: started
-#       enabled: yes
-
-
-# - name: Variales to print
-#   hosts: web
-#   vars:
-#     NAME: "DEEPAK"
-#     EXPERIANCE: "5"
-#     ROLE: "DEVOPS ENGINEER" 
-#   tasks:
-#   - name: print the info
-#     ansible.builtin.debug:
-#       msg: "Hi i am {{NAME}}, I worked as {{ROLE}} and i have experiance of {{EXPERIANCE}}"
-
-# - name: variables to print
-#   hosts: web
-#   vars_files:
-#     vars.yaml
-#   tasks:
-#   - name: print the info
-#     ansible.builtin.debug:
-#       msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXPERIANCE}}"
-
-- name: take inputs from the prompt
-  hosts: web
+- name: check given number is greater than 10
+  hosts: local
+  connection: local
   vars_prompt:
-  - name: NAME
-    prompt: Please Enter the NAME
-    private: false
-  - name: ROLE
-    prompt: Please Enter the ROLE
-    private: false
-  - name: EXP
-    prompt: Please enter the EXP
+    name: Number
+    prompt: Please enter number
     private: false
   tasks:
-  - name: print the info
+  - name: if greater than 10
     ansible.builtin.debug:
-      msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXP}}"
+      msg: "Hi the {{Number}} is grater than 10"
+    when: Number | int > 10
 
+  - name: if less than 10
+    ansible.builtin.debug:
+      msg: "Hi the {{Number}} is less than 10"
+    when: Number | int < 10
