@@ -1,5 +1,20 @@
-- name: ping pong
+# - name: ping pong
+#   hosts: web
+#   tasks:
+#   - name: ping the server
+#     ansible.builtin.ping:
+
+- name: install nginx and run
   hosts: web
+  become: yes
   tasks:
-  - name: ping the server
-    ansible.builtin.ping:
+  - name: install nginx
+    ansible.builtin.package:
+      name: nginx
+      state: present
+  - name: run nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+  
