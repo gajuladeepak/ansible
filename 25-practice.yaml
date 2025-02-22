@@ -1,17 +1,16 @@
-- name: check given number is greater than 10
-  hosts: local
-  connection: local
-  vars_prompt:
-  - name: Number
-    prompt: Please enter number
-    private: false
-  tasks:
-  - name: if greater than 10
-    ansible.builtin.debug:
-      msg: "Hi the {{Number}} is grater than 10"
-    when: Number | int > 10
+- name: create user
+  hosts: web
+  become: yes
+  tasks: 
+  - name: check for user expense
+    ansible.builtin.command: id expense
+    register: USER
+    ignore_errors: True
 
-  - name: if less than 10
+  - name: user info
     ansible.builtin.debug:
-      msg: "Hi the {{Number}} is less than 10"
-    when: Number | int < 10
+    msg: "{{USER}}"
+
+  - name: create user
+    ansible.builtin.command: id expense
+    when: USER.rc != 0
