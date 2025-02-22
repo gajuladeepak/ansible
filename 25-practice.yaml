@@ -30,13 +30,26 @@
 #     ansible.builtin.debug:
 #       msg: "Hi i am {{NAME}}, I worked as {{ROLE}} and i have experiance of {{EXPERIANCE}}"
 
-- name: variables to print
+# - name: variables to print
+#   hosts: web
+#   vars_files:
+#     vars.yaml
+#   tasks:
+#   - name: print the info
+#     ansible.builtin.debug:
+#       msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXPERIANCE}}"
+
+- name: take inputs from the prompt
   hosts: web
-  vars_files:
-    vars.yaml
+  vars_prompt:
+  - name: NAME
+    prompt: Please Enter the NAME
+  - name: ROLE
+    prompt: Please Enter the ROLE
+  - name: EXP
+    prompt: Please enter the EXP
   tasks:
   - name: print the info
     ansible.builtin.debug:
-      msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXPERIANCE}}"
-
+    msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXP}}"
 
