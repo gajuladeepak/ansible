@@ -12,10 +12,7 @@
   vars_files:
   - vars.yaml
   tasks:
-    
-
-
-    - name: Variables from task level  
+  - name: Variables from task level  
       vars: #task level variables
         COURSE: "Ansible from task level" #here we are over-riding the VARIABLE
       ansible.builtin.debug:
@@ -30,10 +27,5 @@
 #6. Inventory
 #7. Roles
 
-#task
-#files
-#command prompt
-#play
-#inventory
-#
+
 
