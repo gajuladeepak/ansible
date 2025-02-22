@@ -25,7 +25,7 @@
     EXPERIANCE: "5"
     ROLE: "DEVOPS ENGINEER" 
   tasks:
-  - name: print tthe msg
+  - name: print the msg
     ansible.built.debug:
       msg: "Hi i am {{NAME}}, I worked as {{ROLE}} and i have experiance of {{EXPERIANCE}}"
 
