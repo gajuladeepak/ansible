@@ -4,17 +4,29 @@
 #   - name: ping the server
 #     ansible.builtin.ping:
 
-- name: install nginx and run
-  hosts: web
-  become: yes
-  tasks:
-  - name: install nginx
-    ansible.builtin.package:
-      name: nginx
-      state: present
-  - name: run nginx
-    ansible.builtin.service:
-      name: nginx
-      state: started
-      enabled: yes
+# - name: install nginx and run
+#   hosts: web
+#   become: yes
+#   tasks:
+#   - name: install nginx
+#     ansible.builtin.package:
+#       name: nginx
+#       state: present
+#   - name: run nginx
+#     ansible.builtin.service:
+#       name: nginx
+#       state: started
+#       enabled: yes
   
+- name: Variales to print
+  hosts: web
+  vars:
+    NAME: "DEEPAK"
+    EXPERIANCE: "5"
+    ROLE: "DEVOPS ENGINEER"
+  
+  tasks:
+  - name: print tthe msg
+    ansible.built.debug:
+      msg: "Hi i am {{NAME}}, I worked as {{ROLE}} and i have experiance of {{EXPERIANCE}}"
+
