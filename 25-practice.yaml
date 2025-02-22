@@ -9,7 +9,7 @@
 
   - name: user info
     ansible.builtin.debug:
-    msg: "{{USER}}"
+      msg: "{{USER}}"
 
   - name: create user
     ansible.builtin.command: id expense
