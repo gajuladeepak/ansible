@@ -44,10 +44,13 @@
   vars_prompt:
   - name: NAME
     prompt: Please Enter the NAME
+    private: false
   - name: ROLE
     prompt: Please Enter the ROLE
+    private: false
   - name: EXP
     prompt: Please enter the EXP
+    private: false
   tasks:
   - name: print the info
     ansible.builtin.debug:
