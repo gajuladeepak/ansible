@@ -19,14 +19,30 @@
 #       enabled: yes
 
 
-- name: Variales to print
+# - name: Variales to print
+#   hosts: web
+#   vars:
+#     NAME: "DEEPAK"
+#     EXPERIANCE: "5"
+#     ROLE: "DEVOPS ENGINEER" 
+#   tasks:
+#   - name: print the info
+#     ansible.builtin.debug:
+#       msg: "Hi i am {{NAME}}, I worked as {{ROLE}} and i have experiance of {{EXPERIANCE}}"
+
+- name: variables to print
   hosts: web
   vars:
     NAME: "DEEPAK"
-    EXPERIANCE: "5"
-    ROLE: "DEVOPS ENGINEER" 
+    EXP: 5
+    ROLE: "DEVOPS_ENGINEER"
   tasks:
   - name: print the info
     ansible.builtin.debug:
-      msg: "Hi i am {{NAME}}, I worked as {{ROLE}} and i have experiance of {{EXPERIANCE}}"
+      msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXP}}"
 
+  - name: Variable at task
+    vars:
+      ROLE: "SENIOR DEVOPS ENGINEER"
+    ansible.builtin.debug:
+      msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXP}}"
