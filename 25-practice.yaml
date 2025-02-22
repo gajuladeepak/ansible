@@ -23,8 +23,7 @@
   vars:
     NAME: "DEEPAK"
     EXPERIANCE: "5"
-    ROLE: "DEVOPS ENGINEER"
-  
+    ROLE: "DEVOPS ENGINEER" 
   tasks:
   - name: print tthe msg
     ansible.built.debug:
