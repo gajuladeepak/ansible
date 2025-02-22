@@ -32,17 +32,11 @@
 
 - name: variables to print
   hosts: web
-  vars:
-    NAME: "DEEPAK"
-    EXP: 5
-    ROLE: "DEVOPS_ENGINEER"
+  vars_files:
+    vars.yaml
   tasks:
   - name: print the info
     ansible.builtin.debug:
-      msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXP}}"
-
-  - name: Variable at task
-    vars_file:
-      vars.yaml
-    ansible.builtin.debug:
       msg: "Hi i am {{NAME}}, I have worked as {{ROLE}} for {{EXPERIANCE}}"
+
+
