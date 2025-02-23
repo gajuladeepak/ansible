@@ -1,7 +1,21 @@
-- name: using default variable
+- name: create ec2 instance and r53 records
   hosts: local
   connection: local
+  vars:
+    img_id: "ami-09c813fb71547fc4f"
+    subnet_id: "subnet-0bd6e7f670e267e67"
+    instances:
+    - mysql
+    - frontend
+    - backend
   tasks:
-  - name: print the default variable
-    ansible.builtin.debug:
-      msg: "Hello {{ course | default('Ansible') }}"
+  - name: create ec2 instance
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      instance_type: t3.micro
+      image_id: "{{ img_id }}"
+      vpc_subnet_id: "{{ subnet_id }}"
+      wait: true
+    loop: "{{ instances }}"
+    register: INSTANCES
+
