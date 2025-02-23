@@ -1,13 +1,7 @@
-- name: loops
+- name: using default variable
   hosts: local
   connection: local
-  become: yes
   tasks:
-  - name: print names
-    ansible.builtin.package:
-      name: "{{item.name}}"
-      state: "{{item.state}}"
-    loop:
-    - { name: 'mysql', state: 'present'}
-    - { name: 'nodejs', state: 'absent'}
-    - { name: 'git', state: 'absent'}
+  - name: print the default variable
+    ansible.builtin.debug:
+      msg: "Hello {{ course | default('Ansible') }}"
