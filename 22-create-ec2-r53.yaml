@@ -5,8 +5,8 @@
   hosts: local
   connection: local
   vars:
-    subnet_id: "subnet-04394e3587e1e9d34" #In "Networking" tab
-    security_id: "sg-05598edab15484e46" #In "Security" tab 
+    subnet_id: "subnet-0bd6e7f670e267e67" #In "Networking" tab
+    security_id: "sg-02bcc52c5f8cdeff8" #In "Security" tab 
     ami_id: "ami-09c813fb71547fc4f"  #In details tab
     instances:
     - mysql
