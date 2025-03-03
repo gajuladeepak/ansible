@@ -4,3 +4,5 @@
     - name: print the information
       ansible.builtin.debug:
         msg: "I am {{NAME}}, Doing {{COURSE}} course"
+
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_user=DevOps321 09-passing-vars-as-arg -e "NAME=DEEPAK COURSE=DEVOPS"
