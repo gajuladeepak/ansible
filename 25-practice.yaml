@@ -1,16 +1,9 @@
-- name: print the greater
-  hosts: local
-  vars_prompt:
-    name: Number
-    prompt: "Please Enter the number"
-    private: false
+- name: user creation
+  hosts: web
+  become: yes
   tasks:
-  - name: if number is greater than 20
-    ansible.builtin.debug:
-      msg: "{{Number}} is greater than 20"
-    when: Number | int > 10
+  - name: check whether the user is created or not
+    ansible.builtin.command: id expense
+    register: User
 
-  - name: if number is leser than 20
-    ansible.builtin.debug:
-      msg: "{{ Number }} is lesser than 20"
-    when: Number | int < 20
+    
