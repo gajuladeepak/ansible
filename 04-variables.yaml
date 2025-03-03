@@ -23,14 +23,3 @@
 
 
 
-
-- name: variables
-  hosts: web
-  vars:
-    COURSE: "DEVOPS"
-    DURATION: 3
-    TRAINER: "DEEPAK"
-  tasks:
-  - name: print 
-    ansible.builtin.debug:
-      msg: "HI i am learning {{ COURSE }} which will be of {{ DURATION }} and the trainer is {{ TRAINER }}

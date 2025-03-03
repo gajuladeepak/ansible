@@ -1,0 +1,11 @@
+- name: print the variables
+  hosts: web
+  vars:
+   COURSE: "DEVOPS"
+   TRAINER: "Shiva"
+   STUDENT: "Deepak"
+  tasks:
+  - name: print the string
+    ansible.builtin.debug:
+      msg: "Hi i am {{ STUDENT }}, I have learnt {{ COURSE }} from the {{ TRAINER }}"
+  
