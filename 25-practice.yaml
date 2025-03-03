@@ -1,10 +1,7 @@
 - name: print the variables
   hosts: web
-  vars_files:
-  - vars.yaml
-
   tasks:
   - name: print the string
     ansible.builtin.debug:
-      msg: "Hi i am {{ NAME }}, my experiance is {{ EXPERIANCE }} and my role is {{ ROLE }}"
+      msg: "Hi i am {{ NAME }}, my experiance is {{ EXP }} and my role is {{ ROLE }}"
   
