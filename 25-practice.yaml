@@ -1,16 +1,10 @@
-- name: user creation
+- name: loops
   hosts: web
-  become: yes
   tasks:
-  - name: check whether the user is created or not
-    ansible.builtin.command: id expense
-    register: User
-    ignore_errors: True
-
-  - name: print the output
+  - name: loop
     ansible.builtin.debug:
-      msg: "User info: {{User}}"
-
-  - name: creating the user
-    ansible.builtin.command: useradd expense
-    when: User.rc != 0
+      msg: "Hello {{item}}"
+    loop:
+    - mysql
+    - backend
+    - frontend
