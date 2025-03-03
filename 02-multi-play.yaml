@@ -11,4 +11,4 @@
   tasks:
   - name: PLAY 02
     ansible.buildin.debug:
-      msg: " I ma from Playbook two"
+      msg: "I am from Playbook two"
