@@ -1,5 +1,5 @@
 - name: giving values from prompt
-  hosts: self
+  hosts: local
   vars_prompt:
   - name: NAME
     prompt: Please Enter the Name
