@@ -1,9 +1,17 @@
-- name: print the variables
+- name: giving values from prompt
   hosts: web
+  vars_prompt:
+  - name: NAME
+    prompt: Please Enter the Name
+    private: false
+  - name: EXP
+    prompt: Please Provide Your Experiance
+    private: false
+  - name: ROLE
+    prompt: Please Provide ROLE
+    private: false
   tasks:
-  - name: print the string
-    vars:
-      NAME: "LEKHANA"
-    ansible.builtin.debug:
-      msg: "Hi i am {{ NAME }}, my experiance is {{ EXP }} and my role is {{ ROLE }}"
-  
+    - name: take values from prompt and print the values
+      ansible.builtin.debug:
+        msg: "Hi I am {{ NAME }}, and my experiance in {{ ROLE }} is {{ EXP }}"
+
