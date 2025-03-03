@@ -5,6 +5,7 @@
   - name: check whether the user is created or not
     ansible.builtin.command: id expense
     register: User
+    ignore_errors: True
 
   - name: print the output
     ansible.builtin.debug:
