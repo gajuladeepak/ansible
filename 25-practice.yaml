@@ -1,17 +1,16 @@
-- name: giving values from prompt
+- name: print the greater
   hosts: local
   vars_prompt:
-  - name: NAME
-    prompt: Please Enter the Name
-    private: false
-  - name: EXP
-    prompt: Please Provide Your Experiance
-    private: false
-  - name: ROLE
-    prompt: Please Provide ROLE
+    name: Number
+    prompt: "Please Enter the number"
     private: false
   tasks:
-    - name: take values from prompt and print the values
-      ansible.builtin.debug:
-        msg: "Hi I am {{ NAME }}, and my experiance in {{ ROLE }} is {{ EXP }}"
+  - name: if number is greater than 20
+    ansible.builtin.debug:
+      msg: "{{Number}} is greater than 20"
+    when: Number | int > 10
 
+  - name: if number is leser than 20
+    ansible.builtin.debug:
+      msg: "{{ Number }} is lesser than 20"
+    when: Number | int < 20
