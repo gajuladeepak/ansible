@@ -1,5 +1,5 @@
 - name: create ec2-instance
-  hosts: web
+  hosts: local
   vars:
     subnet_id: "subnet-02956a72822d39e3d"
     sg_group: "sg-0eb6195b67d3d1e3b"
