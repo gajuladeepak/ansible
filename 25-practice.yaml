@@ -1,19 +1,24 @@
-- name: create ec2-instance
-  hosts: local
+- name: create ec2-instance and r53 records
+  host: web
   vars:
+    sg_group: "sg-02bcc52c5f8cdeff8"
     subnet_id: "subnet-02956a72822d39e3d"
-    sg_group: "sg-0eb6195b67d3d1e3b"
     ami_id: "ami-09c813fb71547fc4f"
-    instances:
-    - mysql
-    - backend
-    - frontend
+
+  instances:
+  - mysql
+  - backend
+  - frontend
   tasks:
-  - name: create ec2-instance
-    amazon.aws.ec2_instance:
-      name: "{{ item }}"
+  - name: create ec2 instance
+    amazon.aws.ec2_instances:
       vpc_subnet_id: "{{ subnet_id }}"
+      instance_type: t3.micro
       security_group: "{{ sg_group }}"
       image_id: "{{ ami_id }}"
-      instance_type: "t3.micro"
     loop: "{{ instances }}"
+    register: ec2_instances
+
+  - name: print the info
+    ansible.builtin.debug:
+      msg: "info: {{ ec2_instances }}"
