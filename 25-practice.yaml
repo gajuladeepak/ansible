@@ -9,6 +9,7 @@
     - mysql
     - backend
     - frontend
+    zone: "deepakaws.online"
   tasks:
   - name: create ec2 instance
     amazon.aws.ec2_instance:
@@ -23,3 +24,30 @@
   - name: print the info
     ansible.builtin.debug:
       msg: "info: {{ ec2_instances }}"
+
+  - name: create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      record: "{{ item.item }}.{{ zone }}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_instances.results }}"
+
+    - name: create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].public_ip_address }}"
+      record: "{{ item.item }}.{{ zone }}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_instances.results }}"
+    when: item.item == "frontend"
+
+  
