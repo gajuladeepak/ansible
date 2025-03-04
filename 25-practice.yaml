@@ -37,8 +37,8 @@
       overwrite: true
     loop: "{{ ec2_instances.results }}"
 
-    - name: create r53 records if it's frontend
-      amazon.aws.route53:
+  - name: create r53 records if it's frontend
+    amazon.aws.route53:
         state: present
         zone: "{{ zone }}"
         type: A
@@ -47,7 +47,7 @@
         record: "{{ item.item }}.{{ zone }}"
         wait: true
         overwrite: true
-      loop: "{{ ec2_instances.results }}"
-      when: item.item == "frontend"
+    loop: "{{ ec2_instances.results }}"
+    when: item.item == "frontend"
 
   
