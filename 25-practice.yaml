@@ -1,5 +1,6 @@
 - name: create ec2-instance and r53 records
-  hosts: web
+  hosts: local
+  connections: local
   vars:
     sg_group: "sg-02bcc52c5f8cdeff8"
     subnet_id: "subnet-02956a72822d39e3d"
